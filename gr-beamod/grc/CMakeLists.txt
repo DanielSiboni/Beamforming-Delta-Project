@@ -5,5 +5,6 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
-
-install(FILES DESTINATION share/gnuradio/grc/blocks)
+install(FILES
+    beamod_beamform_aoa_detection.block.yml
+    beamod_mvdr_beamformer.block.yml DESTINATION share/gnuradio/grc/blocks)
