@@ -19,7 +19,7 @@ add_subdirectory(bindings)
 ########################################################################
 # Install python sources
 ########################################################################
-gr_python_install(FILES __init__.py beamform_aoa_detection.py mvdr_beamformer.py pilot_sync.py DESTINATION ${GR_PYTHON_DIR}/gnuradio/beamod)
+gr_python_install(FILES __init__.py beamform_aoa_detection.py mvdr_beamformer.py pilot_sync.py two_channel_aligner.py DESTINATION ${GR_PYTHON_DIR}/gnuradio/beamod)
 
 ########################################################################
 # Handle the unit tests

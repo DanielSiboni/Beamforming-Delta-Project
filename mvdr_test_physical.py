@@ -64,23 +64,24 @@ class mvdr_test_physical(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
-        self.freq_wave = freq_wave = 2.49e9
+        self.freq_wave = freq_wave = 5.8e9
         self.c_light_speed = c_light_speed = 299792458
-        self.t_gain = t_gain = 50
-        self.samp_rate = samp_rate = 5e6
-        self.r_gain = r_gain = 20
+        self.t_gain = t_gain = 80
+        self.samp_rate = samp_rate = 1e6
+        self.r_gain = r_gain = 30
         self.lambda_wave = lambda_wave = c_light_speed/freq_wave
         self.freq_wave2 = freq_wave2 = 100e3
-        self.d_x = d_x = 0.047
+        self.d_x = d_x = 0.027
+        self.call_seconds = call_seconds = 3.0
 
         ##################################################
         # Blocks
         ##################################################
 
-        self._t_gain_range = qtgui.Range(0, 60, 1, 50, 200)
+        self._t_gain_range = qtgui.Range(0, 80, 1, 80, 200)
         self._t_gain_win = qtgui.RangeWidget(self._t_gain_range, self.set_t_gain, "Transmitter Gain", "counter_slider", float, QtCore.Qt.Horizontal)
         self.top_layout.addWidget(self._t_gain_win)
-        self._r_gain_range = qtgui.Range(0, 50, 1, 20, 200)
+        self._r_gain_range = qtgui.Range(0, 50, 1, 30, 200)
         self._r_gain_win = qtgui.RangeWidget(self._r_gain_range, self.set_r_gain, "Reciver Gain", "counter_slider", float, QtCore.Qt.Horizontal)
         self.top_layout.addWidget(self._r_gain_win)
         self.uhd_usrp_source_0_0 = uhd.usrp_source(
@@ -96,7 +97,7 @@ class mvdr_test_physical(gr.top_block, Qt.QWidget):
         self.uhd_usrp_source_0_0.set_time_unknown_pps(uhd.time_spec(0))
 
         self.uhd_usrp_source_0_0.set_center_freq(freq_wave, 0)
-        self.uhd_usrp_source_0_0.set_antenna("TX/RX", 0)
+        self.uhd_usrp_source_0_0.set_antenna("RX2", 0)
         self.uhd_usrp_source_0_0.set_gain(r_gain, 0)
 
         self.uhd_usrp_source_0_0.set_center_freq(freq_wave, 1)
@@ -169,12 +170,96 @@ class mvdr_test_physical(gr.top_block, Qt.QWidget):
 
         self._qtgui_time_sink_x_1_win = sip.wrapinstance(self.qtgui_time_sink_x_1.qwidget(), Qt.QWidget)
         self.top_layout.addWidget(self._qtgui_time_sink_x_1_win)
+        self.qtgui_freq_sink_x_0_0_1 = qtgui.freq_sink_c(
+            1024, #size
+            window.WIN_BLACKMAN_hARRIS, #wintype
+            0, #fc
+            samp_rate, #bw
+            "Freqs Waves After MVDR", #name
+            2,
+            None # parent
+        )
+        self.qtgui_freq_sink_x_0_0_1.set_update_time(0.10)
+        self.qtgui_freq_sink_x_0_0_1.set_y_axis((-140), 10)
+        self.qtgui_freq_sink_x_0_0_1.set_y_label('Relative Gain', 'dB')
+        self.qtgui_freq_sink_x_0_0_1.set_trigger_mode(qtgui.TRIG_MODE_FREE, 0.0, 0, "")
+        self.qtgui_freq_sink_x_0_0_1.enable_autoscale(False)
+        self.qtgui_freq_sink_x_0_0_1.enable_grid(False)
+        self.qtgui_freq_sink_x_0_0_1.set_fft_average(1.0)
+        self.qtgui_freq_sink_x_0_0_1.enable_axis_labels(True)
+        self.qtgui_freq_sink_x_0_0_1.enable_control_panel(False)
+        self.qtgui_freq_sink_x_0_0_1.set_fft_window_normalized(False)
+
+
+
+        labels = ['', '', '', '', '',
+            '', '', '', '', '']
+        widths = [1, 1, 1, 1, 1,
+            1, 1, 1, 1, 1]
+        colors = ["blue", "red", "green", "black", "cyan",
+            "magenta", "yellow", "dark red", "dark green", "dark blue"]
+        alphas = [1.0, 1.0, 1.0, 1.0, 1.0,
+            1.0, 1.0, 1.0, 1.0, 1.0]
+
+        for i in range(2):
+            if len(labels[i]) == 0:
+                self.qtgui_freq_sink_x_0_0_1.set_line_label(i, "Data {0}".format(i))
+            else:
+                self.qtgui_freq_sink_x_0_0_1.set_line_label(i, labels[i])
+            self.qtgui_freq_sink_x_0_0_1.set_line_width(i, widths[i])
+            self.qtgui_freq_sink_x_0_0_1.set_line_color(i, colors[i])
+            self.qtgui_freq_sink_x_0_0_1.set_line_alpha(i, alphas[i])
+
+        self._qtgui_freq_sink_x_0_0_1_win = sip.wrapinstance(self.qtgui_freq_sink_x_0_0_1.qwidget(), Qt.QWidget)
+        self.top_layout.addWidget(self._qtgui_freq_sink_x_0_0_1_win)
+        self.qtgui_freq_sink_x_0_0_0 = qtgui.freq_sink_c(
+            1024, #size
+            window.WIN_BLACKMAN_hARRIS, #wintype
+            0, #fc
+            samp_rate, #bw
+            "Freqs Waves Before Fix", #name
+            2,
+            None # parent
+        )
+        self.qtgui_freq_sink_x_0_0_0.set_update_time(0.10)
+        self.qtgui_freq_sink_x_0_0_0.set_y_axis((-140), 10)
+        self.qtgui_freq_sink_x_0_0_0.set_y_label('Relative Gain', 'dB')
+        self.qtgui_freq_sink_x_0_0_0.set_trigger_mode(qtgui.TRIG_MODE_FREE, 0.0, 0, "")
+        self.qtgui_freq_sink_x_0_0_0.enable_autoscale(False)
+        self.qtgui_freq_sink_x_0_0_0.enable_grid(False)
+        self.qtgui_freq_sink_x_0_0_0.set_fft_average(1.0)
+        self.qtgui_freq_sink_x_0_0_0.enable_axis_labels(True)
+        self.qtgui_freq_sink_x_0_0_0.enable_control_panel(False)
+        self.qtgui_freq_sink_x_0_0_0.set_fft_window_normalized(False)
+
+
+
+        labels = ['', '', '', '', '',
+            '', '', '', '', '']
+        widths = [1, 1, 1, 1, 1,
+            1, 1, 1, 1, 1]
+        colors = ["blue", "red", "green", "black", "cyan",
+            "magenta", "yellow", "dark red", "dark green", "dark blue"]
+        alphas = [1.0, 1.0, 1.0, 1.0, 1.0,
+            1.0, 1.0, 1.0, 1.0, 1.0]
+
+        for i in range(2):
+            if len(labels[i]) == 0:
+                self.qtgui_freq_sink_x_0_0_0.set_line_label(i, "Data {0}".format(i))
+            else:
+                self.qtgui_freq_sink_x_0_0_0.set_line_label(i, labels[i])
+            self.qtgui_freq_sink_x_0_0_0.set_line_width(i, widths[i])
+            self.qtgui_freq_sink_x_0_0_0.set_line_color(i, colors[i])
+            self.qtgui_freq_sink_x_0_0_0.set_line_alpha(i, alphas[i])
+
+        self._qtgui_freq_sink_x_0_0_0_win = sip.wrapinstance(self.qtgui_freq_sink_x_0_0_0.qwidget(), Qt.QWidget)
+        self.top_layout.addWidget(self._qtgui_freq_sink_x_0_0_0_win)
         self.qtgui_freq_sink_x_0_0 = qtgui.freq_sink_c(
             1024, #size
             window.WIN_BLACKMAN_hARRIS, #wintype
             0, #fc
             samp_rate, #bw
-            "Freqs", #name
+            "Freqs Waves After Fix", #name
             2,
             None # parent
         )
@@ -253,7 +338,8 @@ class mvdr_test_physical(gr.top_block, Qt.QWidget):
 
         self._qtgui_freq_sink_x_0_win = sip.wrapinstance(self.qtgui_freq_sink_x_0.qwidget(), Qt.QWidget)
         self.top_layout.addWidget(self._qtgui_freq_sink_x_0_win)
-        self.beamod_mvdr_beamformer_0 = beamod.mvdr_beamformer(0, [0, d_x], freq_wave, 5120)
+        self.beamod_two_channel_aligner_0 = beamod.two_channel_aligner(samp_rate, call_seconds)
+        self.beamod_mvdr_beamformer_0 = beamod.mvdr_beamformer(0, [0, d_x], freq_wave, 51200)
         self.analog_sig_source_x_0 = analog.sig_source_c(samp_rate, analog.GR_COS_WAVE, freq_wave2, 1, 0, 0)
 
 
@@ -262,11 +348,17 @@ class mvdr_test_physical(gr.top_block, Qt.QWidget):
         ##################################################
         self.connect((self.analog_sig_source_x_0, 0), (self.qtgui_freq_sink_x_0, 0))
         self.connect((self.analog_sig_source_x_0, 0), (self.uhd_usrp_sink_0, 0))
-        self.connect((self.beamod_mvdr_beamformer_0, 0), (self.qtgui_freq_sink_x_0_0, 0))
+        self.connect((self.beamod_mvdr_beamformer_0, 0), (self.qtgui_freq_sink_x_0_0_1, 1))
         self.connect((self.beamod_mvdr_beamformer_0, 0), (self.qtgui_time_sink_x_1, 0))
-        self.connect((self.uhd_usrp_source_0_0, 1), (self.beamod_mvdr_beamformer_0, 1))
-        self.connect((self.uhd_usrp_source_0_0, 0), (self.beamod_mvdr_beamformer_0, 0))
-        self.connect((self.uhd_usrp_source_0_0, 0), (self.qtgui_freq_sink_x_0_0, 1))
+        self.connect((self.beamod_two_channel_aligner_0, 0), (self.beamod_mvdr_beamformer_0, 0))
+        self.connect((self.beamod_two_channel_aligner_0, 1), (self.beamod_mvdr_beamformer_0, 1))
+        self.connect((self.beamod_two_channel_aligner_0, 0), (self.qtgui_freq_sink_x_0_0, 0))
+        self.connect((self.beamod_two_channel_aligner_0, 1), (self.qtgui_freq_sink_x_0_0, 1))
+        self.connect((self.beamod_two_channel_aligner_0, 0), (self.qtgui_freq_sink_x_0_0_1, 0))
+        self.connect((self.uhd_usrp_source_0_0, 0), (self.beamod_two_channel_aligner_0, 0))
+        self.connect((self.uhd_usrp_source_0_0, 1), (self.beamod_two_channel_aligner_0, 1))
+        self.connect((self.uhd_usrp_source_0_0, 1), (self.qtgui_freq_sink_x_0_0_0, 1))
+        self.connect((self.uhd_usrp_source_0_0, 0), (self.qtgui_freq_sink_x_0_0_0, 0))
 
 
     def closeEvent(self, event):
@@ -309,6 +401,8 @@ class mvdr_test_physical(gr.top_block, Qt.QWidget):
         self.analog_sig_source_x_0.set_sampling_freq(self.samp_rate)
         self.qtgui_freq_sink_x_0.set_frequency_range(0, self.samp_rate)
         self.qtgui_freq_sink_x_0_0.set_frequency_range(0, self.samp_rate)
+        self.qtgui_freq_sink_x_0_0_0.set_frequency_range(0, self.samp_rate)
+        self.qtgui_freq_sink_x_0_0_1.set_frequency_range(0, self.samp_rate)
         self.qtgui_time_sink_x_1.set_samp_rate(self.samp_rate)
         self.uhd_usrp_sink_0.set_samp_rate(self.samp_rate)
         self.uhd_usrp_source_0_0.set_samp_rate(self.samp_rate)
@@ -339,6 +433,12 @@ class mvdr_test_physical(gr.top_block, Qt.QWidget):
 
     def set_d_x(self, d_x):
         self.d_x = d_x
+
+    def get_call_seconds(self):
+        return self.call_seconds
+
+    def set_call_seconds(self, call_seconds):
+        self.call_seconds = call_seconds
 
 
 

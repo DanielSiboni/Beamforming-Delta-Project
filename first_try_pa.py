@@ -145,39 +145,9 @@ class first_try_pa(gr.top_block, Qt.QWidget):
         self.blocks_add_xx_0_2 = blocks.add_vcc(1)
         self.blocks_add_xx_0_1 = blocks.add_vcc(1)
         self.blocks_add_xx_0_0 = blocks.add_vcc(1)
-        self.blocks_add_xx_0 = blocks.add_vcc(1)
-        self.beamod_pilot_sync_0 = beamod.pilot_sync()
-        self.beamod_mvdr_beamformer_0 = beamod.mvdr_beamformer(0.0, [0, d_x, 2*d_x, 3*d_x], freq_wave, (512 * 10))
-        self.band_pass_filter_0_0 = filter.fir_filter_ccf(
-            1,
-            firdes.band_pass(
-                1,
-                samp_rate,
-                (0.9 * freq_wave),
-                (1.1 * freq_wave),
-                (0.01 * freq_wave),
-                window.WIN_HAMMING,
-                6.76))
-        self.band_pass_filter_0 = filter.fir_filter_ccf(
-            1,
-            firdes.band_pass(
-                1,
-                samp_rate,
-                (0.9 * freq_wave),
-                (1.1 * freq_wave),
-                (0.01 * freq_wave),
-                window.WIN_HAMMING,
-                6.76))
-        self.analog_sig_source_x_0_3_0 = analog.sig_source_c(samp_rate, analog.GR_COS_WAVE, 1, 1, 0, 0)
-        self.analog_sig_source_x_0_3 = analog.sig_source_c(samp_rate, analog.GR_COS_WAVE, pilot_offset, 1, 0, 0)
-        self.analog_sig_source_x_0_2 = analog.sig_source_c(samp_rate, analog.GR_COS_WAVE, freq_wave, 1, 0, 0)
-        self.analog_sig_source_x_0_1 = analog.sig_source_c(samp_rate, analog.GR_COS_WAVE, freq_wave, 1, 0, 0)
-        self.analog_sig_source_x_0_0 = analog.sig_source_c(samp_rate, analog.GR_COS_WAVE, freq_wave, 1, 0, 0)
-        self.analog_sig_source_x_0 = analog.sig_source_c(samp_rate, analog.GR_COS_WAVE, freq_wave, 1, 0, 0)
-        self.analog_noise_source_x_0_2 = analog.noise_source_c(analog.GR_GAUSSIAN, P_noise, 0)
-        self.analog_noise_source_x_0_1 = analog.noise_source_c(analog.GR_GAUSSIAN, P_noise, 0)
-        self.analog_noise_source_x_0_0 = analog.noise_source_c(analog.GR_GAUSSIAN, P_noise, 0)
-        self.analog_noise_source_x_0 = analog.noise_source_c(analog.GR_GAUSSIAN, P_noise, 0)
+        self.beamod_mvdr_beamformer_0 = beamod.mvdr_beamformer(recv_angle, [0, 1.2*d_x], freq_wave, 51200)
+        self.analog_sig_source_x_0 = analog.sig_source_c(samp_rate, analog.GR_COS_WAVE, 2.4e3, 1, 0, 0)
+        self.analog_const_source_x_0_0 = analog.sig_source_c(0, analog.GR_CONST_WAVE, 0, 0, 0)
 
 
         ##################################################

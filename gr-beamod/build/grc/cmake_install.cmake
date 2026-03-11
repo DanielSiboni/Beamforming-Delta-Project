@@ -44,9 +44,15 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gnuradio/grc/blocks" TYPE FILE FILES
+<<<<<<< HEAD
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/grc/beamod_beamform_aoa_detection.block.yml"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/grc/beamod_mvdr_beamformer.block.yml"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/grc/beamod_pilot_sync.block.yml"
+=======
+    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/grc/beamod_beamform_aoa_detection.block.yml"
+    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/grc/beamod_mvdr_beamformer.block.yml"
+    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/grc/beamod_two_channel_aligner.block.yml"
+>>>>>>> 0cee507f0535cd090257098bef40bf5fd48e385f
     )
 endif()
 
