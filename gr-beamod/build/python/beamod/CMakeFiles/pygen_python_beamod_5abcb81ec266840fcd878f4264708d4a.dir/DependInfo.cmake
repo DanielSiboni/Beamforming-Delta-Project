@@ -18,6 +18,8 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/mvdr_beamformer.pyo" "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyo"
   "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/pilot_sync.pyc" "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyc"
   "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/pilot_sync.pyo" "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyo"
+  "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/two_channel_aligner.pyc" "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyc"
+  "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/two_channel_aligner.pyo" "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyo"
   )
 
 

@@ -8,5 +8,5 @@
 install(FILES
     beamod_beamform_aoa_detection.block.yml
     beamod_mvdr_beamformer.block.yml
-    beamod_pilot_sync.block.yml DESTINATION share/gnuradio/grc/blocks)
+    beamod_pilot_sync.block.yml
     beamod_two_channel_aligner.block.yml DESTINATION share/gnuradio/grc/blocks)

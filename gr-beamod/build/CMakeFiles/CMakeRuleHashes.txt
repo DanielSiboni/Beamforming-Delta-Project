@@ -1,14 +1,6 @@
 # Hashes of file build rules.
-<<<<<<< HEAD
 6dae7bbe4198d51d395f24aac140bcdb CMakeFiles/uninstall
 28d20f6f09822b9b5c8461365649506f python/beamod/CMakeFiles/copy_module_for_tests
-031445ce20f8760f0ecd893671faab0a python/beamod/CMakeFiles/pygen_python_beamod_2b816857306b03e79de96587f69842cc
-9e6d96e3025cd1abebbd5794d0f3ce4a python/beamod/__init__.pyc
-88a154e9b2bd49acf40f1d87cf539de2 python/beamod/__init__.pyo
-=======
-5a9171a2c09696ccf8cc3d9d6f7a20e2 CMakeFiles/uninstall
-5c2652c79f169cad3e98a8cd63f467b3 python/beamod/CMakeFiles/copy_module_for_tests
-b49f7e3350a8757b7effcd0f68daca6b python/beamod/CMakeFiles/pygen_python_beamod_c7ffb25207b88a37fbb512a02624baa2
-6289045e12051c2dd6bab90b2b373adb python/beamod/__init__.pyc
-39a2f4f17b93b64f0efc818643865603 python/beamod/__init__.pyo
->>>>>>> 0cee507f0535cd090257098bef40bf5fd48e385f
+031445ce20f8760f0ecd893671faab0a python/beamod/CMakeFiles/pygen_python_beamod_5abcb81ec266840fcd878f4264708d4a
+969b428efa48134b94d468e949ac2dce python/beamod/__init__.pyc
+7f9df4195d78774dceffc3cb05ec3215 python/beamod/__init__.pyo

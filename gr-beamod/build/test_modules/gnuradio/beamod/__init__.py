@@ -22,10 +22,7 @@ except ModuleNotFoundError:
 # import any pure python here
 from .beamform_aoa_detection import beamform_aoa_detection
 from .mvdr_beamformer import mvdr_beamformer
-<<<<<<< HEAD
 from .pilot_sync import pilot_sync
-=======
 from .two_channel_aligner import two_channel_aligner
->>>>>>> 0cee507f0535cd090257098bef40bf5fd48e385f
 
 #

@@ -44,41 +44,26 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3.12/dist-packages/gnuradio/beamod" TYPE FILE FILES
-<<<<<<< HEAD
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/python/beamod/__init__.py"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/python/beamod/beamform_aoa_detection.py"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/python/beamod/mvdr_beamformer.py"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/python/beamod/pilot_sync.py"
-=======
-    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/python/beamod/__init__.py"
-    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/python/beamod/beamform_aoa_detection.py"
-    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/python/beamod/mvdr_beamformer.py"
-    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/python/beamod/two_channel_aligner.py"
->>>>>>> 0cee507f0535cd090257098bef40bf5fd48e385f
+    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/python/beamod/two_channel_aligner.py"
     )
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3.12/dist-packages/gnuradio/beamod" TYPE FILE FILES
-<<<<<<< HEAD
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyc"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/beamform_aoa_detection.pyc"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/mvdr_beamformer.pyc"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/pilot_sync.pyc"
+    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/two_channel_aligner.pyc"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyo"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/beamform_aoa_detection.pyo"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/mvdr_beamformer.pyo"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/pilot_sync.pyo"
-=======
-    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyc"
-    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/beamform_aoa_detection.pyc"
-    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/mvdr_beamformer.pyc"
-    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/two_channel_aligner.pyc"
-    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyo"
-    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/beamform_aoa_detection.pyo"
-    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/mvdr_beamformer.pyo"
-    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/two_channel_aligner.pyo"
->>>>>>> 0cee507f0535cd090257098bef40bf5fd48e385f
+    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/two_channel_aligner.pyo"
     )
 endif()
 

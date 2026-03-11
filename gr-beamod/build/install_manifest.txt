@@ -3,30 +3,19 @@
 /usr/local/lib/python3.12/dist-packages/gnuradio/beamod/__init__.py
 /usr/local/lib/python3.12/dist-packages/gnuradio/beamod/beamform_aoa_detection.py
 /usr/local/lib/python3.12/dist-packages/gnuradio/beamod/mvdr_beamformer.py
-<<<<<<< HEAD
 /usr/local/lib/python3.12/dist-packages/gnuradio/beamod/pilot_sync.py
-/usr/local/lib/python3.12/dist-packages/gnuradio/beamod/__init__.pyc
-/usr/local/lib/python3.12/dist-packages/gnuradio/beamod/beamform_aoa_detection.pyc
-/usr/local/lib/python3.12/dist-packages/gnuradio/beamod/mvdr_beamformer.pyc
-/usr/local/lib/python3.12/dist-packages/gnuradio/beamod/pilot_sync.pyc
-/usr/local/lib/python3.12/dist-packages/gnuradio/beamod/__init__.pyo
-/usr/local/lib/python3.12/dist-packages/gnuradio/beamod/beamform_aoa_detection.pyo
-/usr/local/lib/python3.12/dist-packages/gnuradio/beamod/mvdr_beamformer.pyo
-/usr/local/lib/python3.12/dist-packages/gnuradio/beamod/pilot_sync.pyo
-/usr/local/share/gnuradio/grc/blocks/beamod_beamform_aoa_detection.block.yml
-/usr/local/share/gnuradio/grc/blocks/beamod_mvdr_beamformer.block.yml
-/usr/local/share/gnuradio/grc/blocks/beamod_pilot_sync.block.yml
-=======
 /usr/local/lib/python3.12/dist-packages/gnuradio/beamod/two_channel_aligner.py
 /usr/local/lib/python3.12/dist-packages/gnuradio/beamod/__init__.pyc
 /usr/local/lib/python3.12/dist-packages/gnuradio/beamod/beamform_aoa_detection.pyc
 /usr/local/lib/python3.12/dist-packages/gnuradio/beamod/mvdr_beamformer.pyc
+/usr/local/lib/python3.12/dist-packages/gnuradio/beamod/pilot_sync.pyc
 /usr/local/lib/python3.12/dist-packages/gnuradio/beamod/two_channel_aligner.pyc
 /usr/local/lib/python3.12/dist-packages/gnuradio/beamod/__init__.pyo
 /usr/local/lib/python3.12/dist-packages/gnuradio/beamod/beamform_aoa_detection.pyo
 /usr/local/lib/python3.12/dist-packages/gnuradio/beamod/mvdr_beamformer.pyo
+/usr/local/lib/python3.12/dist-packages/gnuradio/beamod/pilot_sync.pyo
 /usr/local/lib/python3.12/dist-packages/gnuradio/beamod/two_channel_aligner.pyo
 /usr/local/share/gnuradio/grc/blocks/beamod_beamform_aoa_detection.block.yml
 /usr/local/share/gnuradio/grc/blocks/beamod_mvdr_beamformer.block.yml
+/usr/local/share/gnuradio/grc/blocks/beamod_pilot_sync.block.yml
 /usr/local/share/gnuradio/grc/blocks/beamod_two_channel_aligner.block.yml
->>>>>>> 0cee507f0535cd090257098bef40bf5fd48e385f
