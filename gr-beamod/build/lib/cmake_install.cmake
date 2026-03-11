@@ -1,4 +1,4 @@
-# Install script for directory: /home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/lib
+# Install script for directory: /home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/lib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

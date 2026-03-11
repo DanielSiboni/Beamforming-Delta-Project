@@ -13,19 +13,18 @@ class mvdr_beamformer(gr.sync_block):
     """
     Generic MVDR Beamformer Block for N antennas.
     """
-    # שים לב: המיקומים צריכים להיות במטרים! למשל 6.5 ס"מ יהיה 0.065
+    # locations in meters
     def __init__(self, target_angle=0.0, ant_positions=[0.0, 0.065], freq=2.4e9, snapshots=512):
         
-        # זיהוי אוטומטי של מספר האנטנות
+        # find how much antens
         self.num_antennas = len(ant_positions)
         
-        # יצירת כניסות דינמיות בהתאם למספר האנטנות
         gr.sync_block.__init__(self,
             name="MVDR Beamformer N-Elements",
             in_sig=[np.complex64] * self.num_antennas,
             out_sig=[np.complex64])
 
-        # פרמטרים פיזיקליים
+        # physical params
         self.target_rad = np.radians(target_angle)
         self.ant_positions = np.array(ant_positions)
         self.freq = freq

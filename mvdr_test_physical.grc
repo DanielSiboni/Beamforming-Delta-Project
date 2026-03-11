@@ -11,7 +11,7 @@ options:
     gen_linking: dynamic
     generate_options: qt_gui
     hier_block_src_path: '.:'
-    id: pa_three_anten
+    id: mvdr_test_physical
     max_nouts: '0'
     output_language: python
     placement: (0,0)
@@ -42,43 +42,43 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [928, 40.0]
+    coordinate: [544, 8.0]
     rotation: 0
     state: enabled
 - name: d_x
   id: variable
   parameters:
     comment: ''
-    value: '0.05'
+    value: '0.047'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1288, 32.0]
+    coordinate: [920, 56.0]
     rotation: 0
     state: enabled
 - name: freq_wave
   id: variable
   parameters:
     comment: ''
-    value: 2.4e9
+    value: 2.49e9
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [304, 16.0]
+    coordinate: [792, 56.0]
     rotation: 0
     state: enabled
-- name: freq_wave_0
+- name: freq_wave2
   id: variable
   parameters:
     comment: ''
-    value: 2.45e9
+    value: 100e3
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1152, 32.0]
+    coordinate: [672, 64.0]
     rotation: 0
     state: enabled
 - name: lambda_wave
@@ -90,19 +90,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1464, 32.0]
-    rotation: 0
-    state: enabled
-- name: phase_diff
-  id: variable
-  parameters:
-    comment: ''
-    value: '2*np.pi* d_x * np.sin(recv_theta) / lambda_wave '
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1712, 24.0]
+    coordinate: [1064, 48.0]
     rotation: 0
     state: enabled
 - name: r_gain
@@ -123,40 +111,19 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [624, 8.0]
-    rotation: 0
-    state: enabled
-- name: recv_theta
-  id: variable_qtgui_range
-  parameters:
-    comment: ''
-    gui_hint: ''
-    label: R Angle
-    min_len: '200'
-    orient: QtCore.Qt.Horizontal
-    rangeType: float
-    start: -np.pi / 2
-    step: '0.01'
-    stop: np.pi / 2
-    value: '0'
-    widget: counter_slider
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [760, 8.0]
+    coordinate: [272, 8.0]
     rotation: 0
     state: enabled
 - name: samp_rate
   id: variable
   parameters:
     comment: ''
-    value: '320000'
+    value: 5e6
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [184, 12]
+    coordinate: [176, 8.0]
     rotation: 0
     state: enabled
 - name: t_gain
@@ -170,119 +137,58 @@ blocks:
     rangeType: float
     start: '0'
     step: '1'
-    stop: '50'
-    value: '30'
+    stop: '60'
+    value: '50'
     widget: counter_slider
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [464, 8.0]
+    coordinate: [392, 8.0]
     rotation: 0
     state: enabled
-- name: analog_const_source_x_0
-  id: analog_const_source_x
+- name: analog_sig_source_x_0
+  id: analog_sig_source_x
   parameters:
     affinity: ''
     alias: ''
+    amp: '1'
     comment: ''
-    const: '1'
+    freq: freq_wave2
     maxoutbuf: '0'
     minoutbuf: '0'
+    offset: '0'
+    phase: '0'
+    samp_rate: samp_rate
+    showports: 'False'
     type: complex
+    waveform: analog.GR_COS_WAVE
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [176, 312.0]
+    coordinate: [160, 360.0]
     rotation: 0
     state: enabled
-- name: blocks_add_xx_0
-  id: blocks_add_xx
+- name: beamod_mvdr_beamformer_0
+  id: beamod_mvdr_beamformer
   parameters:
     affinity: ''
     alias: ''
+    ant_positions: '[0, d_x]'
     comment: ''
+    freq: freq_wave
     maxoutbuf: '0'
     minoutbuf: '0'
-    num_inputs: '2'
-    type: complex
-    vlen: '1'
+    snapshots: '5120'
+    target_angle: '0'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1360, 320.0]
+    coordinate: [992, 320.0]
     rotation: 0
     state: enabled
-- name: blocks_phase_shift_0
-  id: blocks_phase_shift
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    is_radians: 'True'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    shift: 0*phase_diff
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1176, 280.0]
-    rotation: 0
-    state: enabled
-- name: blocks_phase_shift_0_0
-  id: blocks_phase_shift
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    is_radians: 'True'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    shift: 1*phase_diff
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1144, 368.0]
-    rotation: 0
-    state: enabled
-- name: blocks_phase_shift_0_1
-  id: blocks_phase_shift
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    is_radians: 'True'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    shift: 3*phase_diff
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1536, 480.0]
-    rotation: 0
-    state: disabled
-- name: blocks_phase_shift_0_2
-  id: blocks_phase_shift
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    is_radians: 'True'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    shift: 4*phase_diff
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1536, 576.0]
-    rotation: 0
-    state: disabled
 - name: import_0
   id: import
   parameters:
@@ -293,7 +199,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [248, 120.0]
+    coordinate: [32, 264.0]
     rotation: 0
     state: enabled
 - name: qtgui_freq_sink_x_0
@@ -374,7 +280,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [416, 376.0]
+    coordinate: [408, 440.0]
     rotation: 0
     state: enabled
 - name: qtgui_freq_sink_x_0_0
@@ -408,7 +314,7 @@ blocks:
     color9: '"dark green"'
     comment: ''
     ctrlpanel: 'False'
-    fc: freq_wave
+    fc: '0'
     fftsize: '1024'
     freqhalf: 'True'
     grid: 'False'
@@ -428,7 +334,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     name: '"Freqs"'
-    nconnections: '1'
+    nconnections: '2'
     norm_window: 'False'
     showports: 'False'
     tr_chan: '0'
@@ -455,284 +361,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1496, 376.0]
+    coordinate: [1256, 440.0]
     rotation: 0
     state: enabled
-- name: qtgui_freq_sink_x_0_0_0
-  id: qtgui_freq_sink_x
-  parameters:
-    affinity: ''
-    alias: ''
-    alpha1: '1.0'
-    alpha10: '1.0'
-    alpha2: '1.0'
-    alpha3: '1.0'
-    alpha4: '1.0'
-    alpha5: '1.0'
-    alpha6: '1.0'
-    alpha7: '1.0'
-    alpha8: '1.0'
-    alpha9: '1.0'
-    autoscale: 'False'
-    average: '1.0'
-    axislabels: 'True'
-    bw: samp_rate
-    color1: '"blue"'
-    color10: '"dark blue"'
-    color2: '"red"'
-    color3: '"green"'
-    color4: '"black"'
-    color5: '"cyan"'
-    color6: '"magenta"'
-    color7: '"yellow"'
-    color8: '"dark red"'
-    color9: '"dark green"'
-    comment: ''
-    ctrlpanel: 'False'
-    fc: freq_wave
-    fftsize: '1024'
-    freqhalf: 'True'
-    grid: 'False'
-    gui_hint: ''
-    label: Relative Gain
-    label1: ''
-    label10: ''''''
-    label2: ''''''
-    label3: ''''''
-    label4: ''''''
-    label5: ''''''
-    label6: ''''''
-    label7: ''''''
-    label8: ''''''
-    label9: ''''''
-    legend: 'True'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    name: '"Freqs First Channel"'
-    nconnections: '1'
-    norm_window: 'False'
-    showports: 'False'
-    tr_chan: '0'
-    tr_level: '0.0'
-    tr_mode: qtgui.TRIG_MODE_FREE
-    tr_tag: '""'
-    type: complex
-    units: dB
-    update_time: '0.10'
-    width1: '1'
-    width10: '1'
-    width2: '1'
-    width3: '1'
-    width4: '1'
-    width5: '1'
-    width6: '1'
-    width7: '1'
-    width8: '1'
-    width9: '1'
-    wintype: window.WIN_BLACKMAN_hARRIS
-    ymax: '10'
-    ymin: '-140'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1256, 504.0]
-    rotation: 0
-    state: disabled
-- name: qtgui_time_sink_x_0
-  id: qtgui_time_sink_x
-  parameters:
-    affinity: ''
-    alias: ''
-    alpha1: '1.0'
-    alpha10: '1.0'
-    alpha2: '1.0'
-    alpha3: '1.0'
-    alpha4: '1.0'
-    alpha5: '1.0'
-    alpha6: '1.0'
-    alpha7: '1.0'
-    alpha8: '1.0'
-    alpha9: '1.0'
-    autoscale: 'False'
-    axislabels: 'True'
-    color1: blue
-    color10: dark blue
-    color2: red
-    color3: green
-    color4: black
-    color5: cyan
-    color6: magenta
-    color7: yellow
-    color8: dark red
-    color9: dark green
-    comment: ''
-    ctrlpanel: 'False'
-    entags: 'True'
-    grid: 'False'
-    gui_hint: ''
-    label1: Signal 1
-    label10: Signal 10
-    label2: Signal 2
-    label3: Signal 3
-    label4: Signal 4
-    label5: Signal 5
-    label6: Signal 6
-    label7: Signal 7
-    label8: Signal 8
-    label9: Signal 9
-    legend: 'True'
-    marker1: '-1'
-    marker10: '-1'
-    marker2: '-1'
-    marker3: '-1'
-    marker4: '-1'
-    marker5: '-1'
-    marker6: '-1'
-    marker7: '-1'
-    marker8: '-1'
-    marker9: '-1'
-    name: '"Total waves"'
-    nconnections: '1'
-    size: '1024'
-    srate: samp_rate
-    stemplot: 'False'
-    style1: '1'
-    style10: '1'
-    style2: '1'
-    style3: '1'
-    style4: '1'
-    style5: '1'
-    style6: '1'
-    style7: '1'
-    style8: '1'
-    style9: '1'
-    tr_chan: '0'
-    tr_delay: '0'
-    tr_level: '0.0'
-    tr_mode: qtgui.TRIG_MODE_FREE
-    tr_slope: qtgui.TRIG_SLOPE_POS
-    tr_tag: '""'
-    type: complex
-    update_time: '0.10'
-    width1: '1'
-    width10: '1'
-    width2: '1'
-    width3: '1'
-    width4: '1'
-    width5: '1'
-    width6: '1'
-    width7: '1'
-    width8: '1'
-    width9: '1'
-    ylabel: Amplitude
-    ymax: '1'
-    ymin: '-1'
-    yunit: '""'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1496, 264.0]
-    rotation: 0
-    state: disabled
-- name: qtgui_time_sink_x_0_0
-  id: qtgui_time_sink_x
-  parameters:
-    affinity: ''
-    alias: ''
-    alpha1: '1.0'
-    alpha10: '1.0'
-    alpha2: '1.0'
-    alpha3: '1.0'
-    alpha4: '1.0'
-    alpha5: '1.0'
-    alpha6: '1.0'
-    alpha7: '1.0'
-    alpha8: '1.0'
-    alpha9: '1.0'
-    autoscale: 'False'
-    axislabels: 'True'
-    color1: blue
-    color10: dark blue
-    color2: red
-    color3: green
-    color4: black
-    color5: cyan
-    color6: magenta
-    color7: yellow
-    color8: dark red
-    color9: dark green
-    comment: ''
-    ctrlpanel: 'False'
-    entags: 'True'
-    grid: 'False'
-    gui_hint: ''
-    label1: Signal 1
-    label10: Signal 10
-    label2: Signal 2
-    label3: Signal 3
-    label4: Signal 4
-    label5: Signal 5
-    label6: Signal 6
-    label7: Signal 7
-    label8: Signal 8
-    label9: Signal 9
-    legend: 'True'
-    marker1: '-1'
-    marker10: '-1'
-    marker2: '-1'
-    marker3: '-1'
-    marker4: '-1'
-    marker5: '-1'
-    marker6: '-1'
-    marker7: '-1'
-    marker8: '-1'
-    marker9: '-1'
-    name: '"First Wave"'
-    nconnections: '1'
-    size: '1024'
-    srate: samp_rate
-    stemplot: 'False'
-    style1: '1'
-    style10: '1'
-    style2: '1'
-    style3: '1'
-    style4: '1'
-    style5: '1'
-    style6: '1'
-    style7: '1'
-    style8: '1'
-    style9: '1'
-    tr_chan: '0'
-    tr_delay: '0'
-    tr_level: '0.0'
-    tr_mode: qtgui.TRIG_MODE_FREE
-    tr_slope: qtgui.TRIG_SLOPE_POS
-    tr_tag: '""'
-    type: complex
-    update_time: '0.10'
-    width1: '1'
-    width10: '1'
-    width2: '1'
-    width3: '1'
-    width4: '1'
-    width5: '1'
-    width6: '1'
-    width7: '1'
-    width8: '1'
-    width9: '1'
-    ylabel: Amplitude
-    ymax: '1'
-    ymin: '-1'
-    yunit: '""'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1744, 136.0]
-    rotation: 0
-    state: disabled
 - name: qtgui_time_sink_x_0_0_0
   id: qtgui_time_sink_x
   parameters:
@@ -827,9 +458,106 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1528, 136.0]
+    coordinate: [1224, 152.0]
     rotation: 0
     state: disabled
+- name: qtgui_time_sink_x_1
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: Signal 1
+    label10: Signal 10
+    label2: Signal 2
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '""'
+    nconnections: '1'
+    size: '1024'
+    srate: samp_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: complex
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1'
+    ymin: '-1'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1248, 328.0]
+    rotation: 0
+    state: enabled
 - name: uhd_usrp_sink_0
   id: uhd_usrp_sink
   parameters:
@@ -1104,7 +832,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [416, 188.0]
+    coordinate: [408, 264.0]
     rotation: 0
     state: enabled
 - name: uhd_usrp_source_0_0
@@ -1540,20 +1268,18 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [824, 220.0]
+    coordinate: [664, 268.0]
     rotation: 0
     state: enabled
 
 connections:
-- [analog_const_source_x_0, '0', qtgui_freq_sink_x_0, '0']
-- [analog_const_source_x_0, '0', uhd_usrp_sink_0, '0']
-- [blocks_add_xx_0, '0', qtgui_freq_sink_x_0_0, '0']
-- [blocks_add_xx_0, '0', qtgui_time_sink_x_0, '0']
-- [blocks_phase_shift_0, '0', blocks_add_xx_0, '0']
-- [blocks_phase_shift_0_0, '0', blocks_add_xx_0, '1']
-- [uhd_usrp_source_0_0, '0', blocks_phase_shift_0, '0']
-- [uhd_usrp_source_0_0, '0', qtgui_freq_sink_x_0_0_0, '0']
-- [uhd_usrp_source_0_0, '1', blocks_phase_shift_0_0, '0']
+- [analog_sig_source_x_0, '0', qtgui_freq_sink_x_0, '0']
+- [analog_sig_source_x_0, '0', uhd_usrp_sink_0, '0']
+- [beamod_mvdr_beamformer_0, '0', qtgui_freq_sink_x_0_0, '0']
+- [beamod_mvdr_beamformer_0, '0', qtgui_time_sink_x_1, '0']
+- [uhd_usrp_source_0_0, '0', beamod_mvdr_beamformer_0, '0']
+- [uhd_usrp_source_0_0, '0', qtgui_freq_sink_x_0_0, '1']
+- [uhd_usrp_source_0_0, '1', beamod_mvdr_beamformer_0, '1']
 
 metadata:
   file_format: 1

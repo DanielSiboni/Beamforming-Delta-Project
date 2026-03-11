@@ -1,4 +1,4 @@
-# Install script for directory: /home/sdr/Documents/Beamforming-Delta-Project/gr-beamod
+# Install script for directory: /home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -43,17 +43,17 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/gnuradio-beamod" TYPE FILE FILES "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/cmake/Modules/gnuradio-beamodConfig.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/gnuradio-beamod" TYPE FILE FILES "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/cmake/Modules/gnuradio-beamodConfig.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/include/gnuradio/beamod/cmake_install.cmake")
-  include("/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/lib/cmake_install.cmake")
-  include("/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/apps/cmake_install.cmake")
-  include("/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/docs/cmake_install.cmake")
-  include("/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/cmake_install.cmake")
-  include("/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/grc/cmake_install.cmake")
+  include("/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/include/gnuradio/beamod/cmake_install.cmake")
+  include("/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/lib/cmake_install.cmake")
+  include("/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/apps/cmake_install.cmake")
+  include("/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/docs/cmake_install.cmake")
+  include("/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/cmake_install.cmake")
+  include("/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/grc/cmake_install.cmake")
 
 endif()
 
@@ -65,5 +65,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
