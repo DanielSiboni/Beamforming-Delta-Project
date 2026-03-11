@@ -102,9 +102,21 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1080, 88.0]
+    coordinate: [1024, 112.0]
     rotation: 0
     state: disabled
+- name: recv_angle
+  id: variable
+  parameters:
+    comment: ''
+    value: '10'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [72, 216.0]
+    rotation: 0
+    state: enabled
 - name: recv_theta
   id: variable_qtgui_range
   parameters:
@@ -142,7 +154,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: d_x*np.sin(trans_theta)/c_light_speed
+    value: d_x*np.sin(trans_theta_radians)/c_light_speed
   states:
     bus_sink: false
     bus_source: false
@@ -150,7 +162,7 @@ blocks:
     coordinate: [160, 128.0]
     rotation: 0
     state: enabled
-- name: trans_theta
+- name: trans_degs
   id: variable_qtgui_range
   parameters:
     comment: ''
@@ -159,16 +171,28 @@ blocks:
     min_len: '200'
     orient: QtCore.Qt.Horizontal
     rangeType: float
-    start: -np.pi / 2
+    start: '-90'
     step: '0.01'
-    stop: np.pi / 2
-    value: '0'
+    stop: '90'
+    value: '30'
     widget: counter_slider
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [304, 16.0]
+    coordinate: [304, 72.0]
+    rotation: 0
+    state: enabled
+- name: trans_theta_radians
+  id: variable
+  parameters:
+    comment: ''
+    value: np.radians(trans_degs)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [176, 208.0]
     rotation: 0
     state: enabled
 - name: analog_const_source_x_0_0
@@ -185,7 +209,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [560, 576.0]
+    coordinate: [640, 536.0]
     rotation: 0
     state: enabled
 - name: analog_const_source_x_0_0_0
@@ -210,7 +234,7 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    amp: '0.5'
+    amp: '1'
     comment: ''
     freq: 2.4e3
     maxoutbuf: '0'
@@ -248,7 +272,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [368, 480.0]
+    coordinate: [224, 464.0]
     rotation: 0
     state: disabled
 - name: beamod_mvdr_beamformer_0
@@ -262,7 +286,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     snapshots: '51200'
-    target_angle: '0'
+    target_angle: recv_angle
   states:
     bus_sink: false
     bus_source: false
@@ -378,7 +402,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [960, 520.0]
+    coordinate: [944, 528.0]
     rotation: 0
     state: disabled
 - name: blocks_phase_shift_0_2
