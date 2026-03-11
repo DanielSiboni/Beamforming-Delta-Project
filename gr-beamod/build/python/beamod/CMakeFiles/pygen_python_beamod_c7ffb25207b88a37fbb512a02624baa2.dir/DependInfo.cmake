@@ -16,6 +16,8 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/beamform_aoa_detection.pyo" "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyo"
   "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/mvdr_beamformer.pyc" "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyc"
   "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/mvdr_beamformer.pyo" "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyo"
+  "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/two_channel_aligner.pyc" "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyc"
+  "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/two_channel_aligner.pyo" "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyo"
   )
 
 

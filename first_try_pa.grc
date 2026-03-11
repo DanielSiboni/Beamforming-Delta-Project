@@ -280,7 +280,7 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    ant_positions: '[0, d_x]'
+    ant_positions: '[0, 1.2*d_x]'
     comment: ''
     freq: freq_wave
     maxoutbuf: '0'

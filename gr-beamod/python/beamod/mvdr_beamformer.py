@@ -29,36 +29,35 @@ class mvdr_beamformer(gr.sync_block):
         self.ant_positions = np.array(ant_positions)
         self.freq = freq
         
-        # תוקן: מהירות האור במטרים לשנייה
+        # find wave_langth
         self.wavelength = 299792458.0 / freq 
         self.snapshots = snapshots
         
         self.a_s = self._calculate_steering_vector()
 
-        # באפר ומשקולות דינמיים
+        # add buffer
         self.buffer = np.zeros((self.num_antennas, 0), dtype=np.complex64)
         self.weights = self.a_s.flatten() / self.num_antennas
 
     def _calculate_steering_vector(self):
-        # חישוב וקטור גנרי לכל מספר של אנטנות
+        # put generic vector
         phases = 2 * np.pi * self.ant_positions * np.sin(self.target_rad) / self.wavelength
-        return np.exp(-1j * phases).reshape(self.num_antennas, 1)
+        return np.exp(-1j * phases).reshape(self.num_antennas, 1) / np.sqrt(2)
 
     def work(self, input_items, output_items):
         n_samples = len(input_items[0])
         
-        # הפיכת כל הכניסות למטריצה אחת של N שורות
         in_data = np.array(input_items, dtype=np.complex64)
 
-        # עדכון באפר
+        # add to buffer
         self.buffer = np.hstack((self.buffer, in_data))
 
-        # חישוב MVDR
+        # calculate the mdvr
         if self.buffer.shape[1] >= self.snapshots:
             X_snap = self.buffer[:, :self.snapshots]
             
             R = np.dot(X_snap, X_snap.conj().T) / self.snapshots
-            R += np.eye(self.num_antennas) * 1e-6
+            R += np.eye(self.num_antennas) * 1e-9
             
             try:
                 R_inv = np.linalg.inv(R)
@@ -70,8 +69,7 @@ class mvdr_beamformer(gr.sync_block):
             
             self.buffer = self.buffer[:, self.snapshots:]
 
-        # יישום המשקולות על כל הדגימות (עובד ל-N אנטנות בבת אחת)
-        # מכפילים כל שורה באנטנה במשקולת הצמודה שלה, ומסכמים
+        # put all weights on all samples
         output_items[0][:] = np.dot(self.weights.conj(), in_data)
 
         return n_samples

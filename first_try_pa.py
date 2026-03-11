@@ -178,7 +178,7 @@ class first_try_pa(gr.top_block, Qt.QWidget):
         self.blocks_delay_0 = blocks.delay(gr.sizeof_gr_complex*1, 0)
         self.blocks_add_xx_0_0_0 = blocks.add_vcc(1)
         self.blocks_add_xx_0_0 = blocks.add_vcc(1)
-        self.beamod_mvdr_beamformer_0 = beamod.mvdr_beamformer(recv_angle, [0, d_x], freq_wave, 51200)
+        self.beamod_mvdr_beamformer_0 = beamod.mvdr_beamformer(recv_angle, [0, 1.2*d_x], freq_wave, 51200)
         self.analog_sig_source_x_0 = analog.sig_source_c(samp_rate, analog.GR_COS_WAVE, 2.4e3, 1, 0, 0)
         self.analog_const_source_x_0_0 = analog.sig_source_c(0, analog.GR_CONST_WAVE, 0, 0, 0)
 
