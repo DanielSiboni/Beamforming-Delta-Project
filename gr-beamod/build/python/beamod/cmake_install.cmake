@@ -47,6 +47,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/python/beamod/__init__.py"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/python/beamod/beamform_aoa_detection.py"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/python/beamod/mvdr_beamformer.py"
+    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/python/beamod/pilot_sync.py"
     )
 endif()
 
@@ -55,9 +56,11 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyc"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/beamform_aoa_detection.pyc"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/mvdr_beamformer.pyc"
+    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/pilot_sync.pyc"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyo"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/beamform_aoa_detection.pyo"
     "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/mvdr_beamformer.pyo"
+    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/pilot_sync.pyo"
     )
 endif()
 

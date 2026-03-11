@@ -59,7 +59,8 @@ class mvdr_beamformer(gr.sync_block):
             X_snap = self.buffer[:, :self.snapshots]
             
             R = np.dot(X_snap, X_snap.conj().T) / self.snapshots
-            R += np.eye(self.num_antennas) * 1e-6
+            signal_power = np.trace(R).real / self.num_antennas
+            R += np.eye(self.num_antennas) * ((signal_power * 1e-6) + 1e-12)
             
             try:
                 R_inv = np.linalg.inv(R)
