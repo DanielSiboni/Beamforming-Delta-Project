@@ -1,4 +1,4 @@
-# Install script for directory: /home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/python/beamod
+# Install script for directory: /home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/python/beamod
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,32 +44,32 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3.12/dist-packages/gnuradio/beamod" TYPE FILE FILES
-    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/python/beamod/__init__.py"
-    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/python/beamod/beamform_aoa_detection.py"
-    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/python/beamod/mvdr_beamformer.py"
-    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/python/beamod/pilot_sync.py"
-    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/python/beamod/two_channel_aligner.py"
+    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/python/beamod/__init__.py"
+    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/python/beamod/beamform_aoa_detection.py"
+    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/python/beamod/mvdr_beamformer.py"
+    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/python/beamod/pilot_sync.py"
+    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/python/beamod/two_channel_aligner.py"
     )
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3.12/dist-packages/gnuradio/beamod" TYPE FILE FILES
-    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyc"
-    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/beamform_aoa_detection.pyc"
-    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/mvdr_beamformer.pyc"
-    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/pilot_sync.pyc"
-    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/two_channel_aligner.pyc"
-    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyo"
-    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/beamform_aoa_detection.pyo"
-    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/mvdr_beamformer.pyo"
-    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/pilot_sync.pyo"
-    "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/two_channel_aligner.pyo"
+    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyc"
+    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/beamform_aoa_detection.pyc"
+    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/mvdr_beamformer.pyc"
+    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/pilot_sync.pyc"
+    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/two_channel_aligner.pyc"
+    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/__init__.pyo"
+    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/beamform_aoa_detection.pyo"
+    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/mvdr_beamformer.pyo"
+    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/pilot_sync.pyo"
+    "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/two_channel_aligner.pyo"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/build/python/beamod/bindings/cmake_install.cmake")
+  include("/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/build/python/beamod/bindings/cmake_install.cmake")
 
 endif()
 
