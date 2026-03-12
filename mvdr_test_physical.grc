@@ -198,7 +198,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1104, 312.0]
+    coordinate: [1104, 272.0]
     rotation: 0
     state: enabled
 - name: beamod_two_channel_aligner_0
@@ -471,7 +471,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [816, 496.0]
+    coordinate: [848, 520.0]
     rotation: 0
     state: enabled
 - name: qtgui_freq_sink_x_0_0_1
@@ -1023,7 +1023,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [232, 252.0]
+    coordinate: [232, 260.0]
     rotation: 0
     state: enabled
 - name: uhd_usrp_source_0_0

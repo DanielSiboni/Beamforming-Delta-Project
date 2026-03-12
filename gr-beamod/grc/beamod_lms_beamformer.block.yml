@@ -1,0 +1,43 @@
+id: beamod_lms_beamformer
+label: lms_beamformer
+category: '[beamod]'
+
+templates:
+  imports: from gnuradio import beamod
+  make: beamod.lms_beamformer(${num_antennas}, ${mu})
+
+#  Make one 'parameters' list entry for every parameter you want settable from the GUI.
+#     Keys include:
+#     * id (makes the value accessible as keyname, e.g. in the make entry)
+#     * label (label shown in the GUI)
+#     * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
+#     * default
+parameters:
+- id: num_antennas
+  label: Number of Antennas
+  dtype: int
+  default: 2
+
+- id: mu
+  label: LMS Step Size (mu)
+  dtype: float
+  default: 0.001
+
+inputs:
+- label: antenna_vector
+  domain: stream
+  dtype: complex
+  vlen: ${num_antennas}
+
+- label: reference
+  domain: stream
+  dtype: complex
+
+outputs:
+- label: out
+  domain: stream
+  dtype: complex
+
+#  'file_format' specifies the version of the GRC yml format used in the file
+#  and should usually not be changed.
+file_format: 1

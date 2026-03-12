@@ -1,4 +1,4 @@
-# Install script for directory: /home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/include/gnuradio/beamod
+# Install script for directory: /home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/include/gnuradio/beamod
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -43,6 +43,6 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/gnuradio/beamod" TYPE FILE FILES "/home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/include/gnuradio/beamod/api.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/gnuradio/beamod" TYPE FILE FILES "/home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/include/gnuradio/beamod/api.h")
 endif()
 

@@ -350,15 +350,15 @@ class mvdr_test_physical(gr.top_block, Qt.QWidget):
         self.connect((self.analog_sig_source_x_0, 0), (self.uhd_usrp_sink_0, 0))
         self.connect((self.beamod_mvdr_beamformer_0, 0), (self.qtgui_freq_sink_x_0_0_1, 1))
         self.connect((self.beamod_mvdr_beamformer_0, 0), (self.qtgui_time_sink_x_1, 0))
-        self.connect((self.beamod_two_channel_aligner_0, 0), (self.beamod_mvdr_beamformer_0, 0))
         self.connect((self.beamod_two_channel_aligner_0, 1), (self.beamod_mvdr_beamformer_0, 1))
+        self.connect((self.beamod_two_channel_aligner_0, 0), (self.beamod_mvdr_beamformer_0, 0))
         self.connect((self.beamod_two_channel_aligner_0, 0), (self.qtgui_freq_sink_x_0_0, 0))
         self.connect((self.beamod_two_channel_aligner_0, 1), (self.qtgui_freq_sink_x_0_0, 1))
         self.connect((self.beamod_two_channel_aligner_0, 0), (self.qtgui_freq_sink_x_0_0_1, 0))
-        self.connect((self.uhd_usrp_source_0_0, 0), (self.beamod_two_channel_aligner_0, 0))
         self.connect((self.uhd_usrp_source_0_0, 1), (self.beamod_two_channel_aligner_0, 1))
-        self.connect((self.uhd_usrp_source_0_0, 1), (self.qtgui_freq_sink_x_0_0_0, 1))
+        self.connect((self.uhd_usrp_source_0_0, 0), (self.beamod_two_channel_aligner_0, 0))
         self.connect((self.uhd_usrp_source_0_0, 0), (self.qtgui_freq_sink_x_0_0_0, 0))
+        self.connect((self.uhd_usrp_source_0_0, 1), (self.qtgui_freq_sink_x_0_0_0, 1))
 
 
     def closeEvent(self, event):

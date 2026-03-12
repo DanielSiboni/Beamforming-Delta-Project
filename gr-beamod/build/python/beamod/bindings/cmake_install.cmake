@@ -1,4 +1,4 @@
-# Install script for directory: /home/sdr/Documents/Dolev/Beamforming-Delta-Project/gr-beamod/python/beamod/bindings
+# Install script for directory: /home/sdr/Documents/Beamforming-Delta-Project/gr-beamod/python/beamod/bindings
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

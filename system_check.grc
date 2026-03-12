@@ -400,7 +400,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     samp_rate: samp_rate
-    type: fir_filter_ccf
+    type: fir_filter_ccc
     width: 0.01 * freq_wave
     win: window.WIN_HAMMING
   states:
@@ -425,7 +425,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     samp_rate: samp_rate
-    type: fir_filter_ccf
+    type: fir_filter_ccc
     width: 0.01 * freq_wave
     win: window.WIN_HAMMING
   states:
@@ -702,7 +702,7 @@ blocks:
     bus_structure: null
     coordinate: [2328, 304.0]
     rotation: 0
-    state: enabled
+    state: bypassed
 - name: blocks_multiply_const_vxx_1_0
   id: blocks_multiply_const_vxx
   parameters:
@@ -720,7 +720,7 @@ blocks:
     bus_structure: null
     coordinate: [2328, 416.0]
     rotation: 0
-    state: enabled
+    state: bypassed
 - name: blocks_multiply_xx_0
   id: blocks_multiply_xx
   parameters:
